@@ -14,7 +14,7 @@ public class SingletonItemStorage implements IItemStorage{
 
     private SingletonItemStorage(){
         for (int i=0; i<20; i++)
-            storage.add(new Item(i, Integer.toHexString(i), i));
+            storage.add(new Item(Integer.toString(i), i));
     }
 
     public static SingletonItemStorage getInstance(){
@@ -33,5 +33,10 @@ public class SingletonItemStorage implements IItemStorage{
 
     public void save(){
 
+    }
+
+    public void addItem(Item item){
+        storage.add(item);
+        item.setId(storage.size() - 1);
     }
 }

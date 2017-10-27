@@ -2,6 +2,7 @@ package com.eystudio.android.listapplication;
 
 import android.content.Context;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -10,28 +11,35 @@ import android.widget.TextView;
  */
 
 public class ItemViewController {
-    View view;
-    int position;
-    IItemStorage storage;
+    private View view;
+    private int position;
+    private IItemStorage storage;
+    private IImageSource imageSource;
 
-    TextView name;
+    private TextView name;
+    private ImageView picture;
 
-    void getElements(){
+    private void getElements(){
         name = view.findViewById(R.id.item_name);
+        picture = view.findViewById(R.id.picture);
     }
 
-    void bind(){
+    private void bind(){
 
     }
 
     public void updateContent(int position){
-        name.setText(storage.getItem(position).getmName());
+        name.setText(storage.getItem(position).getName());
+        int imageId = imageSource.getImageId(position);
+        picture.setImageResource(imageId);
     }
 
-    public ItemViewController(View view, IItemStorage storage, int position) {
+    public ItemViewController(int position, View view,
+                              IItemStorage storage, IImageSource imageSource) {
         this.view = view;
         this.position = position;
         this.storage = storage;
+        this.imageSource = imageSource;
         getElements();
         bind();
         updateContent(position);

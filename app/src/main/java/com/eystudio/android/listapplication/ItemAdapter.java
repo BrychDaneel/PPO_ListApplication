@@ -17,6 +17,7 @@ public class ItemAdapter extends BaseAdapter{
 
     private LayoutInflater inflater;
     private IItemStorage storage;
+    private IImageSource imageSource;
 
     @Override
     public int getCount() {
@@ -37,7 +38,8 @@ public class ItemAdapter extends BaseAdapter{
     public View getView(int i, View view, ViewGroup viewGroup) {
         if (view == null){
             view = inflater.inflate(R.layout.list_item, viewGroup, false);
-            view.setTag(new ItemViewController(view, storage, i));
+            ItemViewController controller = new ItemViewController(i, view, storage, imageSource);
+            view.setTag(controller);
         } else {
             ItemViewController controller = (ItemViewController) view.getTag();
             controller.updateContent(i);
@@ -45,8 +47,9 @@ public class ItemAdapter extends BaseAdapter{
         return view;
     }
 
-    public ItemAdapter(Context context, IItemStorage storage){
+    public ItemAdapter(Context context, IItemStorage storage, IImageSource imageSource){
         inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         this.storage = storage;
+        this.imageSource = imageSource;
     }
 }

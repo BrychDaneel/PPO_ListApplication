@@ -1,27 +1,29 @@
 package com.eystudio.android.listapplication;
 
+import java.io.Serializable;
+
 /**
  * Created by daneel on 27.10.17.
  */
 
-public class Item {
+public class Item implements Serializable{
     String mName;
     int mPicture;
     int mId;
 
-    public String getmName() {
+    public String getName() {
         return mName;
     }
 
-    public void setmName(String mName) {
+    public void setName(String mName) {
         this.mName = mName;
     }
 
-    public int getmImage() {
+    public int getImage() {
         return mPicture;
     }
 
-    public void setmImage(int mImage) {
+    public void setImage(int mImage) {
         this.mPicture = mImage;
     }
 
@@ -37,5 +39,9 @@ public class Item {
         mId = id;
         mName = name;
         mPicture = picture;
+    }
+
+    public Item(String name, int picture){
+        this(0, name, picture);
     }
 }
