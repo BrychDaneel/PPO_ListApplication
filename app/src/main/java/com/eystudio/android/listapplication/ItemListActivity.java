@@ -12,6 +12,8 @@ public class ItemListActivity extends AppCompatActivity implements View.OnClickL
     ListView list;
     ItemAdapter adapter;
     Button button;
+    IItemStorage storage;
+    IImageSource imageSource;
 
     void getElements(){
         list = (ListView) findViewById(R.id.item_list);
@@ -23,8 +25,8 @@ public class ItemListActivity extends AppCompatActivity implements View.OnClickL
     }
 
     void setup(){
-        IItemStorage storage = SingletonItemStorage.getInstance();
-        IImageSource imageSource = SingletonImageSource.getInstance();
+        storage = SingletonItemStorage.getInstance();
+        imageSource = SingletonImageSource.getInstance();
         adapter = new ItemAdapter(this, storage, imageSource);
         list.setAdapter(adapter);
     }
@@ -49,6 +51,16 @@ public class ItemListActivity extends AppCompatActivity implements View.OnClickL
             case R.id.add_button:
                 addItem();
                 break;
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == EditActivity.ADD_ITEM_RCODE && resultCode == RESULT_OK) {
+            Item item = (Item) data.getSerializableExtra(EditActivity.RET_ITEM_KEY);
+            storage.addItem(item);
+            adapter.notifyDataSetChanged();
         }
     }
 }

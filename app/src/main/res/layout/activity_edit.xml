@@ -8,35 +8,62 @@
     android:layout_margin="20dp"
     tools:context="com.eystudio.android.listapplication.EditActivity">
 
-    <TextView
+    <LinearLayout
+        android:layout_height="0dp"
+        android:layout_weight="6"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="40sp"
-        android:text="@string/name_cap"/>
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="40sp"
+            android:text="@string/name_cap"/>
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="30sp"
-        android:id="@+id/name_edit"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="30sp"
+            android:ems="10"
+            android:id="@+id/name_edit"/>
 
-    <TextView
-        android:layout_marginTop="20dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="40sp"
-        android:text="@string/pict_cap"/>
+        <TextView
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="40sp"
+            android:text="@string/pict_cap"/>
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:id="@+id/picture"/>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:scaleType="fitCenter"
+            android:id="@+id/picture"/>
 
-    <Button
-        android:layout_width="match_parent"
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/change_cap"
+            android:textSize="30sp"
+            android:id="@+id/image_button"/>
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_height="wrap_content"
-        android:text="@string/change_cap"
-        android:scaleType="fitCenter"
-        android:textSize="30sp"
-        android:id="@+id/image_button"/>
+        android:layout_width="match_parent"
+        android:orientation="horizontal">
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/cancel_cap"
+            android:textSize="30sp"
+            android:id="@+id/cancel_button"/>
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/ok_cap"
+            android:textSize="30sp"
+            android:id="@+id/ok_button"/>
+    </LinearLayout>
 </LinearLayout>

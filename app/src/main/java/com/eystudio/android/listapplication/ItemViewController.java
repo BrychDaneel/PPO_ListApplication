@@ -29,8 +29,9 @@ public class ItemViewController {
     }
 
     public void updateContent(int position){
-        name.setText(storage.getItem(position).getName());
-        int imageId = imageSource.getImageId(position);
+        Item item = storage.getItem(position);
+        name.setText(item.getName());
+        int imageId = imageSource.getImageId(item.getImage());
         picture.setImageResource(imageId);
     }
 

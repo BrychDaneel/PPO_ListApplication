@@ -4,4 +4,6 @@
     <string name="name_cap">Name:</string>
     <string name="pict_cap">Picture:</string>
     <string name="change_cap">change</string>
+    <string name="cancel_cap">cancel</string>
+    <string name="ok_cap">ok</string>
 </resources>

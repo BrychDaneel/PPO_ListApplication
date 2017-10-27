@@ -1,5 +1,8 @@
 package com.eystudio.android.listapplication;
 
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -8,7 +11,7 @@ import android.widget.ImageView;
  * Created by daneel on 27.10.17.
  */
 
-public class ImageItemViewController {
+public class ImageItemViewController implements View.OnClickListener{
     View view;
     int position;
     IImageSource imageSource;
@@ -20,7 +23,7 @@ public class ImageItemViewController {
     }
 
     void bind(){
-
+        imageButton.setOnClickListener(this);
     }
 
     public void updateContent(int position){
@@ -35,5 +38,20 @@ public class ImageItemViewController {
         getElements();
         bind();
         updateContent(position);
+    }
+
+    private void pick(){
+        Intent intent = new Intent();
+        intent.putExtra(ImagePickerActivity.IMAGE_ID_RET, position);
+        Activity activity = (Activity) view.getContext();
+        activity.setResult(Activity.RESULT_OK, intent);
+        activity.finish();
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.image_item: pick(); break;
+        }
     }
 }
