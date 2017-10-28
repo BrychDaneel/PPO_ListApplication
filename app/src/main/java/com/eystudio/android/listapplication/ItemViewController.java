@@ -12,6 +12,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.eystudio.android.listapplication.data.IImageSource;
+import com.eystudio.android.listapplication.data.IItemStorage;
+
 /**
  * Created by daneel on 27.10.17.
  */

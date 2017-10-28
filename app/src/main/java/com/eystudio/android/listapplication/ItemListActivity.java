@@ -5,9 +5,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
 import android.widget.ListView;
+
+import com.eystudio.android.listapplication.data.DatabaseItemStorage;
+import com.eystudio.android.listapplication.data.IImageSource;
+import com.eystudio.android.listapplication.data.IItemStorage;
+import com.eystudio.android.listapplication.data.SingletonImageSource;
 
 public class ItemListActivity extends AppCompatActivity{
 
@@ -24,7 +27,7 @@ public class ItemListActivity extends AppCompatActivity{
     }
 
     void setup(){
-        storage = SingletonItemStorage.getInstance();
+        storage = new DatabaseItemStorage(this);
         imageSource = SingletonImageSource.getInstance();
         adapter = new ItemAdapter(this, storage, imageSource);
         list.setAdapter(adapter);

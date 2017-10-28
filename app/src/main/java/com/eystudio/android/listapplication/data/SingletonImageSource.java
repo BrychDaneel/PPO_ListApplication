@@ -1,14 +1,12 @@
-package com.eystudio.android.listapplication;
+package com.eystudio.android.listapplication.data;
 
-import android.widget.ImageView;
-
-import java.util.List;
+import com.eystudio.android.listapplication.R;
 
 /**
  * Created by daneel on 27.10.17.
  */
 
-public class SingletonImageSource implements IImageSource{
+public class SingletonImageSource implements IImageSource {
 
     private static SingletonImageSource instance;
 

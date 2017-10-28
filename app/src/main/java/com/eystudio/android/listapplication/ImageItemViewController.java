@@ -1,11 +1,11 @@
 package com.eystudio.android.listapplication;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.view.View;
 import android.widget.ImageButton;
-import android.widget.ImageView;
+
+import com.eystudio.android.listapplication.data.IImageSource;
 
 /**
  * Created by daneel on 27.10.17.

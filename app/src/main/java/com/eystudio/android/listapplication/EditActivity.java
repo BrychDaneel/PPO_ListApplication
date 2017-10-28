@@ -2,13 +2,14 @@ package com.eystudio.android.listapplication;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+
+import com.eystudio.android.listapplication.data.IImageSource;
+import com.eystudio.android.listapplication.data.SingletonImageSource;
 
 public class EditActivity extends Activity
         implements View.OnClickListener{

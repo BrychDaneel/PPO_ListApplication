@@ -6,6 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
+import com.eystudio.android.listapplication.data.IImageSource;
+
 /**
  * Created by daneel on 27.10.17.
  */

@@ -1,13 +1,13 @@
 package com.eystudio.android.listapplication;
 
-import android.content.ContentProvider;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
-import java.util.zip.Inflater;
+import com.eystudio.android.listapplication.data.IImageSource;
+import com.eystudio.android.listapplication.data.IItemStorage;
 
 /**
  * Created by daneel on 27.10.17.

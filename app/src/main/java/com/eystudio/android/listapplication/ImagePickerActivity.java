@@ -4,6 +4,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.GridView;
 
+import com.eystudio.android.listapplication.data.IImageSource;
+import com.eystudio.android.listapplication.data.SingletonImageSource;
+
 public class ImagePickerActivity extends AppCompatActivity {
 
     public static final int SELECT_IMAGE_RCODE = 1;

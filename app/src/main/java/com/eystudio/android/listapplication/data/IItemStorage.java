@@ -1,10 +1,12 @@
-package com.eystudio.android.listapplication;
+package com.eystudio.android.listapplication.data;
+
+import com.eystudio.android.listapplication.Item;
 
 /**
  * Created by daneel on 27.10.17.
  */
 
-interface IItemStorage {
+public interface IItemStorage {
     int getCount();
     Item getItem(int i);
     void addItem(Item item);

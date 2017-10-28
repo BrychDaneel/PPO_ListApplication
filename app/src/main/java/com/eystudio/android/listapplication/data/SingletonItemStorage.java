@@ -1,4 +1,6 @@
-package com.eystudio.android.listapplication;
+package com.eystudio.android.listapplication.data;
+
+import com.eystudio.android.listapplication.Item;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,7 +9,7 @@ import java.util.List;
  * Created by daneel on 27.10.17.
  */
 
-public class SingletonItemStorage implements IItemStorage{
+public class SingletonItemStorage implements IItemStorage {
 
     static SingletonItemStorage instance;
     static int freeId;
@@ -15,8 +17,8 @@ public class SingletonItemStorage implements IItemStorage{
     List<Item> storage = new ArrayList<>();
 
     private SingletonItemStorage(){
-        for (int i=0; i<20; i++)
-            storage.add(new Item(freeId++, Integer.toString(i), i));
+        //for (int i=0; i<20; i++)
+        //    storage.add(new Item(freeId++, Integer.toString(i), i));
     }
 
     public static SingletonItemStorage getInstance(){
