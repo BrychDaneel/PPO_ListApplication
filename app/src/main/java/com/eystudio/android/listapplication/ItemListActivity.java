@@ -9,21 +9,18 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
 
-public class ItemListActivity extends AppCompatActivity implements View.OnClickListener{
+public class ItemListActivity extends AppCompatActivity{
 
     ListView list;
     ItemAdapter adapter;
-    Button button;
     IItemStorage storage;
     IImageSource imageSource;
 
     void getElements(){
         list = (ListView) findViewById(R.id.item_list);
-        button = (Button) findViewById(R.id.add_button);
     }
 
     void bind(){
-        button.setOnClickListener(this);
     }
 
     void setup(){
@@ -63,15 +60,6 @@ public class ItemListActivity extends AppCompatActivity implements View.OnClickL
         Intent intent = new Intent(this, EditActivity.class);
         intent.putExtra(EditActivity.RCODE_KEY, EditActivity.ADD_ITEM_RCODE);
         startActivityForResult(intent, EditActivity.ADD_ITEM_RCODE);
-    }
-
-    @Override
-    public void onClick(View view) {
-        switch (view.getId()){
-            case R.id.add_button:
-                addItem();
-                break;
-        }
     }
 
     public void onRemoveConfirmed(Item item){
