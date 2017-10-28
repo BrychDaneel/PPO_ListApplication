@@ -38,7 +38,8 @@ public class ItemAdapter extends BaseAdapter{
     public View getView(int i, View view, ViewGroup viewGroup) {
         if (view == null){
             view = inflater.inflate(R.layout.list_item, viewGroup, false);
-            ItemViewController controller = new ItemViewController(i, view, storage, imageSource);
+            ItemViewController controller;
+            controller= new ItemViewController(i, view, this, storage, imageSource);
             view.setTag(controller);
         } else {
             ItemViewController controller = (ItemViewController) view.getTag();

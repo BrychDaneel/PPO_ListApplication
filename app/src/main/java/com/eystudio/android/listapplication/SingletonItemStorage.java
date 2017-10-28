@@ -10,11 +10,13 @@ import java.util.List;
 public class SingletonItemStorage implements IItemStorage{
 
     static SingletonItemStorage instance;
+    static int freeId;
+
     List<Item> storage = new ArrayList<>();
 
     private SingletonItemStorage(){
         for (int i=0; i<20; i++)
-            storage.add(new Item(Integer.toString(i), i));
+            storage.add(new Item(freeId++, Integer.toString(i), i));
     }
 
     public static SingletonItemStorage getInstance(){
@@ -37,6 +39,23 @@ public class SingletonItemStorage implements IItemStorage{
 
     public void addItem(Item item){
         storage.add(item);
-        item.setId(storage.size() - 1);
+        item.setId(freeId++);
+    }
+
+    public void updateItem(Item item){
+        for (Item oldItem : storage)
+            if (oldItem.getId() == item.getId()){
+                oldItem.setImage(item.getImage());
+                oldItem.setName(item.getName());
+                break;
+            }
+    }
+
+    public void deleteItem(Item item){
+        for (Item oldItem : storage)
+            if (oldItem.getId() == item.getId()){
+                storage.remove(oldItem);
+                break;
+            }
     }
 }

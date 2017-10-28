@@ -1,5 +1,6 @@
 package com.eystudio.android.listapplication;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,11 +10,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 
-public class EditActivity extends AppCompatActivity
+public class EditActivity extends Activity
         implements View.OnClickListener{
 
     public static final int ADD_ITEM_RCODE = 1;
+    public static final int EDIT_ITEM_RCODE = 2;
     public static final String RET_ITEM_KEY = "com.eystudio.listapplication.edit.ret_item";
+    public static final String ITEM_KEY = "com.eystudio.listapplication.edit.item";
+    public static final String RCODE_KEY = "com.eystudio.listapplication.edit.rcode";
 
     private final String DEFAULT_TEXT = "something";
     private final int DEFAULT_PICTURE = 0;
@@ -37,7 +41,11 @@ public class EditActivity extends AppCompatActivity
 
     private void setup(){
         imageSource = SingletonImageSource.getInstance();
-        item = new Item(DEFAULT_TEXT, DEFAULT_PICTURE);
+        if (getIntent().getIntExtra(RCODE_KEY, 0) == EDIT_ITEM_RCODE)
+            item = (Item) getIntent().getSerializableExtra(ITEM_KEY);
+        else
+            item = new Item(DEFAULT_TEXT, DEFAULT_PICTURE);
+
         syncView();
     }
 
@@ -99,4 +107,6 @@ public class EditActivity extends AppCompatActivity
             syncView();
         }
     }
+
+
 }

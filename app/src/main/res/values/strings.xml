@@ -6,4 +6,7 @@
     <string name="change_cap">change</string>
     <string name="cancel_cap">cancel</string>
     <string name="ok_cap">ok</string>
+    <string name="conf_rem_title">Remove item?</string>
+    <string name="conf_rem_remove">remove</string>
+    <string name="conf_rem_cancel">cancel</string>
 </resources>

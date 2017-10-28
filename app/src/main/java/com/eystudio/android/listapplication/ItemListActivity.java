@@ -42,6 +42,7 @@ public class ItemListActivity extends AppCompatActivity implements View.OnClickL
 
     private void addItem(){
         Intent intent = new Intent(this, EditActivity.class);
+        intent.putExtra(EditActivity.RCODE_KEY, EditActivity.ADD_ITEM_RCODE);
         startActivityForResult(intent, EditActivity.ADD_ITEM_RCODE);
     }
 
@@ -54,12 +55,24 @@ public class ItemListActivity extends AppCompatActivity implements View.OnClickL
         }
     }
 
+    public void onRemoveConfirmed(Item item){
+        storage.deleteItem(item);
+        adapter.notifyDataSetChanged();
+    }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+
         if (requestCode == EditActivity.ADD_ITEM_RCODE && resultCode == RESULT_OK) {
             Item item = (Item) data.getSerializableExtra(EditActivity.RET_ITEM_KEY);
             storage.addItem(item);
+            adapter.notifyDataSetChanged();
+        }
+
+        if (requestCode == EditActivity.EDIT_ITEM_RCODE && resultCode == RESULT_OK) {
+            Item item = (Item) data.getSerializableExtra(EditActivity.RET_ITEM_KEY);
+            storage.updateItem(item);
             adapter.notifyDataSetChanged();
         }
     }
