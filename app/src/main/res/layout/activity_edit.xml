@@ -8,44 +8,49 @@
     android:layout_margin="20dp"
     tools:context="com.eystudio.android.listapplication.EditActivity">
 
-    <LinearLayout
+    <ScrollView
         android:layout_height="0dp"
         android:layout_weight="6"
         android:layout_width="match_parent"
         android:orientation="vertical">
-        <TextView
-            android:layout_width="match_parent"
+        <LinearLayout
             android:layout_height="wrap_content"
-            android:textSize="40sp"
-            android:text="@string/name_cap"/>
-
-        <EditText
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="30sp"
-            android:ems="10"
-            android:id="@+id/name_edit"/>
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="40sp"
+                android:text="@string/name_cap"/>
 
-        <TextView
-            android:layout_marginTop="20dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="40sp"
-            android:text="@string/pict_cap"/>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="30sp"
+                android:ems="10"
+                android:id="@+id/name_edit"/>
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:scaleType="fitCenter"
-            android:id="@+id/picture"/>
+            <TextView
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="40sp"
+                android:text="@string/pict_cap"/>
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/change_cap"
-            android:textSize="30sp"
-            android:id="@+id/image_button"/>
-    </LinearLayout>
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:scaleType="fitCenter"
+                android:id="@+id/picture"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/change_cap"
+                android:textSize="30sp"
+                android:id="@+id/image_button"/>
+        </LinearLayout>
+    </ScrollView>
 
     <LinearLayout
         android:layout_height="wrap_content"
