@@ -28,6 +28,8 @@
                 android:layout_height="wrap_content"
                 android:textSize="30sp"
                 android:ems="10"
+                android:maxLines="1"
+                android:maxLength="10"
                 android:id="@+id/name_edit"/>
 
             <TextView

@@ -31,7 +31,7 @@ public class ItemViewController implements View.OnTouchListener, View.OnClickLis
     private ImageButton deleteButton;
 
     private float controlPercent;
-    private final float CONTROL_STABLE = 0.333f;
+    private final float CONTROL_STABLE = 0.35f;
     private final float MIN_SPEED = 7f;
     private final String DIALOG_REMOVE_CONFIGM = "RemoveConfirm";
 
