@@ -32,6 +32,7 @@ public class ItemViewController implements View.OnTouchListener, View.OnClickLis
 
     private float controlPercent;
     private final float CONTROL_STABLE = 0.333f;
+    private final float MIN_SPEED = 7f;
     private final String DIALOG_REMOVE_CONFIGM = "RemoveConfirm";
 
     private void getElements(){
@@ -105,9 +106,20 @@ public class ItemViewController implements View.OnTouchListener, View.OnClickLis
         }
 
         if (motionEvent.getAction() == MotionEvent.ACTION_MOVE && pressed){
+            int size = motionEvent.getHistorySize();
+            if (size == 0)
+                return true;
+            float dtime = motionEvent.getEventTime() - motionEvent.getHistoricalEventTime(size - 1);
+
             float dx = motionEvent.getX() - last_x;
             last_x = motionEvent.getX();
+
             float width = view.getWidth();
+
+            float speed = Math.abs(dx / width) / (dtime / 1000);
+            if (speed < MIN_SPEED)
+                return true;
+
             float pdx = dx / width;
             controlPercent -= pdx;
             if (controlPercent < 0)
